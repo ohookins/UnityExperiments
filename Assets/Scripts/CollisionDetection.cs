@@ -14,16 +14,19 @@ public class CollisionDetection : MonoBehaviour
 	{
 
 	}
-	void OnCollisionEnter(Collision info)
-    {
-		if (info.gameObject.name == "Plane")
-		{
-			Destroy(gameObject);
-		}
 
-		if (info.gameObject.name == "Sphere")
-		{
-			gameObject.GetComponent<Rigidbody>().AddForce(0, 300, 0);
-		}
-	}
+    void OnCollisionEnter(Collision info)
+    {
+        if (info.gameObject.name == "Plane")
+        {
+            Debug.Log("Collision Detected");
+        }
+    }
+    void OnTriggerEnter(Collider info)
+    {
+        if (info.gameObject.name == "Plane")
+        {
+            Debug.Log("Trigger Detected");
+        }
+    }
 }
