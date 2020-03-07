@@ -10,18 +10,19 @@ public class MoveObject : MonoBehaviour
         
     }
 
+    float speed = 0.5f;
+
     // Update is called once per frame
     void Update()
     {
-        // move based on up/down and left/right arrows
-        //transform.position += transform.up * Input.GetAxis("Vertical");
-        //transform.position += transform.right * Input.GetAxis("Horizontal");
+        // control position with arrows and variable to control speed
+        //transform.position += transform.right * Input.GetAxis("Horizontal") * speed;
+        //transform.position += transform.up * Input.GetAxis("Vertical") * speed;
 
-        // rotate left and right
-        //transform.Rotate(Vector3.up * 25 * Input.GetAxis("Horizontal"));
-
-        // bigger or smaller with left/right arrows
+        // control scale of object with left/right and variable to control rate of change
         transform.localScale +=
-            new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Horizontal"), Input.GetAxis("Horizontal"));
+        new Vector3(Input.GetAxis("Horizontal") * speed,
+        Input.GetAxis("Horizontal") * speed,
+        Input.GetAxis("Horizontal") * speed);
     }
 }
