@@ -13,18 +13,15 @@ public class MoveObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // move the object to the right
-        //transform.position += transform.right;
+        // move based on up/down and left/right arrows
+        //transform.position += transform.up * Input.GetAxis("Vertical");
+        //transform.position += transform.right * Input.GetAxis("Horizontal");
 
-        // rotate the object around the up axis (y)
-        //transform.Rotate(Vector3.up * 5);
+        // rotate left and right
+        //transform.Rotate(Vector3.up * 25 * Input.GetAxis("Horizontal"));
 
-        // scale the object to 110% of its previous scale, on each frame
-        //transform.localScale += new Vector3(0.1F, 0.1F, 0.1F);
-
-        // move, rotate and scale on every frame
-        transform.position += transform.forward * 0.01f;
-        transform.Rotate(Vector3.up * 25);
-        transform.localScale += new Vector3(0.01F, 0.01F, 0.01F);
+        // bigger or smaller with left/right arrows
+        transform.localScale +=
+            new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Horizontal"), Input.GetAxis("Horizontal"));
     }
 }
