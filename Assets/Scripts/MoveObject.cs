@@ -4,25 +4,29 @@ using UnityEngine;
 
 public class MoveObject : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int speed = 25;
+    float xPosition;
+    float yPosition;
+    float zPosition;
+
+    Rigidbody rb;
+
+    private void Start()
     {
-        
+        rb = gameObject.GetComponent<Rigidbody>();
     }
 
-    float speed = 0.5f;
-
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        // control position with arrows and variable to control speed
-        //transform.position += transform.right * Input.GetAxis("Horizontal") * speed;
-        //transform.position += transform.up * Input.GetAxis("Vertical") * speed;
+        MoveCube();
+    }
 
-        // control scale of object with left/right and variable to control rate of change
-        transform.localScale +=
-        new Vector3(Input.GetAxis("Horizontal") * speed,
-        Input.GetAxis("Horizontal") * speed,
-        Input.GetAxis("Horizontal") * speed);
+    void MoveCube()
+    {
+        xPosition = Input.GetAxis("Horizontal") * speed;
+        yPosition = Input.GetAxis("Jump") * speed;
+        zPosition = Input.GetAxis("Vertical") * speed;
+        rb.AddForce(xPosition, yPosition, zPosition);
     }
 }
