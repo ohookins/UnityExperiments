@@ -11,11 +11,15 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnACube", 1.0f, 5.0f);
+        StartCoroutine(SpawnACube());
     }
 
-    void SpawnACube()
+    IEnumerator SpawnACube()
     {
-        Instantiate(theCube, transform.position, transform.rotation);
+        while (true)
+        {
+            Instantiate(theCube, transform.position, transform.rotation);
+            yield return new WaitForSeconds(Random.Range(0.1f, 5.0f));
+        }
     }
 }
