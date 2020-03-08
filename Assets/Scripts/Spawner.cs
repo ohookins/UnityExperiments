@@ -11,11 +11,10 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        InvokeRepeating("SpawnACube", 1.0f, 5.0f);
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    void SpawnACube()
     {
         Instantiate(theCube, transform.position, transform.rotation);
     }
