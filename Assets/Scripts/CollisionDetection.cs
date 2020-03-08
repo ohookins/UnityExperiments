@@ -20,6 +20,7 @@ public class CollisionDetection : MonoBehaviour
         if (info.gameObject.name == "Plane")
         {
             Debug.Log("Collision Detected");
+            Destroy(this.gameObject);
         }
     }
     void OnTriggerEnter(Collider info)
